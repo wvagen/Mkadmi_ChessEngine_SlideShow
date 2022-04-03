@@ -13,10 +13,12 @@ public class MS_SlideShow_Canvas : MonoBehaviour
     public float translateSpeed;
 
     int currentPageIndex = 0;
+    int currentIndex = 0;
 
     const float MOVE_TRANSLATE_VALUE = 1;
 
     Vector3 vectorOfIndex;
+    List<Vector3> previousPos = new List<Vector3>();
 
     bool canClick = true;
     void Start()
@@ -29,6 +31,7 @@ public class MS_SlideShow_Canvas : MonoBehaviour
     void Init()
     {
         pages = new List<MS_SlideShow_Page>();
+        previousPos.Add(camTransform.position);
         currentPageIndex = 0;
         vectorOfIndex = Vector3.zero;
         vectorOfIndex.y = 0;
@@ -81,13 +84,16 @@ public class MS_SlideShow_Canvas : MonoBehaviour
     {
         currentPage.Set_Active(false);
         canClick = false;
-
+        Vector3 targetPos;
         if (isGoingNext)
         {
             currentPageIndex++;
-            if (currentPageIndex % 5 == 0)
+            currentIndex++;
+
+            if (currentIndex % 5 == 0)
             {
-                vectorOfIndex = Vector3.one;
+                currentIndex = 1;
+                vectorOfIndex = Vector3.zero;
                 vectorOfIndex.y = 0;
             }
             if (vectorOfIndex.x == 0 && vectorOfIndex.z != -1)
@@ -99,7 +105,6 @@ public class MS_SlideShow_Canvas : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("GOING LEFT !?");
                     vectorOfIndex.z = 1;
                     vectorOfIndex.x = 0;
                 }
@@ -117,13 +122,16 @@ public class MS_SlideShow_Canvas : MonoBehaviour
                     vectorOfIndex.x = 0;
                 }
             }
+            targetPos = camTransform.position + vectorOfIndex * MOVE_TRANSLATE_VALUE;
+            previousPos.Add(targetPos);
         }
         else
         {
             currentPageIndex--;
+            currentIndex--;
+            targetPos = previousPos[previousPos.Count - 2];
+            previousPos.RemoveAt(previousPos.Count - 1);
         }
-
-        Vector3 targetPos = camTransform.position + vectorOfIndex * MOVE_TRANSLATE_VALUE;
 
         while (Vector3.Distance(camTransform.position, targetPos) > 0.01f)
         {

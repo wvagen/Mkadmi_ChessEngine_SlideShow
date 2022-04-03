@@ -25219,7 +25219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camTransform: {fileID: 1974944745}
-  translateSpeed: 1
+  translateSpeed: 2
 --- !u!114 &1547760781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31121,7 +31121,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1974944744}
   m_LocalRotation: {x: 0.49999997, y: 0.49999997, z: -0.49999997, w: 0.49999997}
-  m_LocalPosition: {x: 4, y: 1, z: 4}
+  m_LocalPosition: {x: 4, y: 1, z: 3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
