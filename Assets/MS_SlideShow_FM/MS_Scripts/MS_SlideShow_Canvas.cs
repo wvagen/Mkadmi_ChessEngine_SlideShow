@@ -5,8 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MS_SlideShow_Canvas : MonoBehaviour
 {
-
-    private List<MS_SlideShow_Page> pages;
+    public List<MS_SlideShow_Page> pages;
     private MS_SlideShow_Page currentPage;
 
     public Transform camTransform;
