@@ -30,7 +30,7 @@ public class MS_SlideShow_Canvas : MonoBehaviour
     {
         pages = new List<MS_SlideShow_Page>();
         currentPageIndex = 0;
-        vectorOfIndex = Vector3.one;
+        vectorOfIndex = Vector3.zero;
         vectorOfIndex.y = 0;
     }
 
@@ -85,29 +85,35 @@ public class MS_SlideShow_Canvas : MonoBehaviour
         if (isGoingNext)
         {
             currentPageIndex++;
-            if (vectorOfIndex.x == 0)
+            if (currentPageIndex % 5 == 0)
             {
-                if (vectorOfIndex.x == 1)
+                vectorOfIndex = Vector3.one;
+                vectorOfIndex.y = 0;
+            }
+            if (vectorOfIndex.x == 0 && vectorOfIndex.z != -1)
+            {
+                if (vectorOfIndex.z == 1)
                 {
                     vectorOfIndex.x = -1;
                     vectorOfIndex.z = 0;
                 }
                 else
                 {
-                    vectorOfIndex.x = 1;
-                    vectorOfIndex.z = 0;
+                    Debug.Log("GOING LEFT !?");
+                    vectorOfIndex.z = 1;
+                    vectorOfIndex.x = 0;
                 }
             }
             else
             {
-                if (vectorOfIndex.z == 1)
+                if (vectorOfIndex.z == -1)
                 {
-                    vectorOfIndex.z = -1;
-                    vectorOfIndex.x = 0;
+                    vectorOfIndex.z = 0;
+                    vectorOfIndex.x = 1;
                 }
                 else
                 {
-                    vectorOfIndex.z = 1;
+                    vectorOfIndex.z = -1;
                     vectorOfIndex.x = 0;
                 }
             }
@@ -115,11 +121,11 @@ public class MS_SlideShow_Canvas : MonoBehaviour
         else
         {
             currentPageIndex--;
-
         }
+
         Vector3 targetPos = camTransform.position + vectorOfIndex * MOVE_TRANSLATE_VALUE;
 
-        while (Vector2.Distance(camTransform.position, targetPos) > 0.01f)
+        while (Vector3.Distance(camTransform.position, targetPos) > 0.01f)
         {
             camTransform.position = Vector3.MoveTowards(camTransform.position, targetPos, Time.deltaTime * translateSpeed);
             yield return new WaitForEndOfFrame();
