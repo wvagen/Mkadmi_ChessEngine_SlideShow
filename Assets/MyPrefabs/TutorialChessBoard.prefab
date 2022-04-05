@@ -1158,7 +1158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04fb71f492762444f810f49c09cd229a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myAnim: {fileID: 0}
+  myAnim: {fileID: 1014735483127497484}
   rotSpeed: 20
   canRotate: 1
 --- !u!95 &1014735483127497484
