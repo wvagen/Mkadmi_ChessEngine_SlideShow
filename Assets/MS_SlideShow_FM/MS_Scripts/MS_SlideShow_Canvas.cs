@@ -11,6 +11,8 @@ public class MS_SlideShow_Canvas : MonoBehaviour
     public Transform camTransform;
     public float translateSpeed;
 
+    public Color[] textColors;
+
     int currentPageIndex = 0;
     int currentIndex = 0;
 
@@ -20,11 +22,15 @@ public class MS_SlideShow_Canvas : MonoBehaviour
     List<Vector3> previousPos = new List<Vector3>();
 
     bool canClick = true;
+
+    static int reachedFrame = 0;
+
     void Start()
     {
         Init();
         Set_Pages();
         Pages_Behaviour_Config();
+        Skip_To_Reached_Frame();
     }
 
     void Init()
@@ -47,12 +53,20 @@ public class MS_SlideShow_Canvas : MonoBehaviour
         }
     }
 
+    void Skip_To_Reached_Frame()
+    {
+        currentPage.Set_Active(false);
+        currentPage = pages[reachedFrame];
+        currentPage.Set_Active(true);
+        currentPageIndex = reachedFrame;
+    }
+
     void Pages_Behaviour_Config()
     {
         for (int i = 0; i < pages.Count; i++)
         {
             pages[i].Set_Active(false);
-            pages[i].Set_Me(i + 1);
+            pages[i].Set_Me(i + 1, textColors[i % 2]);
         }
         if (pages.Count > 0)
         {
@@ -64,6 +78,10 @@ public class MS_SlideShow_Canvas : MonoBehaviour
     void Update()
     {
         Page_Switch();
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            SceneManager.LoadScene("AR_Scene");
+        }
     }
 
     void Page_Switch()
@@ -139,6 +157,7 @@ public class MS_SlideShow_Canvas : MonoBehaviour
         }
 
         currentPage = pages[currentPageIndex];
+        reachedFrame = currentPageIndex;
         currentPage.Set_Active(true);
         canClick = true;
     }

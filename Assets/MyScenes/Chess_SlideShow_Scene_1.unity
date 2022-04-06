@@ -25221,6 +25221,9 @@ MonoBehaviour:
   pages: []
   camTransform: {fileID: 1974944745}
   translateSpeed: 2
+  textColors:
+  - {r: 0.2, g: 0.2, b: 0.19607843, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &1547760781
 MonoBehaviour:
   m_ObjectHideFlags: 0

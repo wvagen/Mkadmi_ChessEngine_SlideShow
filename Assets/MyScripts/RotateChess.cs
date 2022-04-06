@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RotateChess : MonoBehaviour
 {
@@ -57,7 +58,10 @@ public class RotateChess : MonoBehaviour
             myAnim.SetBool("IsReturningToIdle", false);
             myAnim.Play("King_Tutorial");
         }
-
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            SceneManager.LoadScene("Chess_SlideShow_Scene_1");
+        }
     }
 
     public void Start_Stop_Rotating()

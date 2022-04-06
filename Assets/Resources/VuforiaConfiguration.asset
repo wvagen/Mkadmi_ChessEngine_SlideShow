@@ -44,6 +44,6 @@ MonoBehaviour:
     mSequencePath: 
     playModeType: 0
   webcam:
-    renderTextureLayer: 10
+    renderTextureLayer: 30
   packageInformation:
     ARFoundationVersion: 
