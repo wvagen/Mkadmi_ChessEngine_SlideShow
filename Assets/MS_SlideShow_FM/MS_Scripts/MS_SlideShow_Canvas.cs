@@ -12,6 +12,7 @@ public class MS_SlideShow_Canvas : MonoBehaviour
     public float translateSpeed;
 
     public Color[] textColors;
+    public bool isMainMenu = false;
 
     int currentPageIndex = 0;
     int currentIndex = 0;
@@ -157,7 +158,10 @@ public class MS_SlideShow_Canvas : MonoBehaviour
         }
 
         currentPage = pages[currentPageIndex];
-        reachedFrame = currentPageIndex;
+
+        if(!isMainMenu)
+            reachedFrame = currentPageIndex;
+
         currentPage.Set_Active(true);
         canClick = true;
     }
