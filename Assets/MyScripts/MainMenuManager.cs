@@ -32,7 +32,7 @@ public class MainMenuManager : MonoBehaviour
     {
         slideShowCanvas.pages[slideShowCanvas.pages.Count - 1].Set_Active(false);
         myAnim.Play("CamAnim");
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
