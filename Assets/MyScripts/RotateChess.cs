@@ -31,32 +31,47 @@ public class RotateChess : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             myAnim.SetBool("IsReturningToIdle", false);
-            myAnim.Play("Pawn_Tutorial");
+            myAnim.Play("Pawn_Tutorial",-1,0);
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             myAnim.SetBool("IsReturningToIdle", false);
-            myAnim.Play("Rook_Tutorial");
+            myAnim.Play("Rook_Tutorial", -1, 0);
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             myAnim.SetBool("IsReturningToIdle", false);
-            myAnim.Play("Bishop_Tutorial");
+            myAnim.Play("Bishop_Tutorial", -1, 0);
         }
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
             myAnim.SetBool("IsReturningToIdle", false);
-            myAnim.Play("Knight_Tutorial");
+            myAnim.Play("Knight_Tutorial", -1, 0);
         }
         if (Input.GetKeyDown(KeyCode.Alpha5))
         {
             myAnim.SetBool("IsReturningToIdle", false);
-            myAnim.Play("Queen_Tutorial");
+            myAnim.Play("Queen_Tutorial", -1, 0);
         }
         if (Input.GetKeyDown(KeyCode.Alpha6))
         {
             myAnim.SetBool("IsReturningToIdle", false);
-            myAnim.Play("King_Tutorial");
+            myAnim.Play("King_Tutorial", -1, 0);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha7))
+        {
+            myAnim.SetBool("IsReturningToIdle", false);
+            myAnim.Play("Check_Position", -1, 0);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha8))
+        {
+            myAnim.SetBool("IsReturningToIdle", false);
+            myAnim.Play("Check_Mate_Position", -1, 0);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha9))
+        {
+            myAnim.SetBool("IsReturningToIdle", false);
+            myAnim.Play("Stale_Mate", -1, 0);
         }
         if (Input.GetKeyDown(KeyCode.P))
         {
