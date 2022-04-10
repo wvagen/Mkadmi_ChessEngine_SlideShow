@@ -81,7 +81,7 @@ public class MS_SlideShow_Canvas : MonoBehaviour
         Page_Switch();
         if (Input.GetKeyDown(KeyCode.P))
         {
-            SceneManager.LoadScene("AR_Scene");
+            SceneManager.LoadScene("AR_Scene 1");
         }
     }
 
